@@ -2,7 +2,8 @@ PRO_DIR=`pwd`
 mkdir -p ~/bin
 cd ~/bin
 
-SHELL_LIST=`ls $PRO_DIR`
+SHELL_LIST=`ls $PRO_DIR | grep '\.sh$'`
+
 for i in $SHELL_LIST
 do
 	if [ $i != 'install.sh' ]
