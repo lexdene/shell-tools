@@ -21,9 +21,11 @@ OLDPATH=$(pwd)
 
 for path in `find $HEREPATH -name .git -follow`
  do
-	cd ${path:0:-4}
+	(( len=${#path}-4))
+	subpath=${path:0:$len}
+	cd $subpath
 	strCommand="git $@"
-	echo -e "\033[32;40m ${path:0:-4} >> $strCommand \033[0m"
+	echo -e "\033[32;40m $subpath >> $strCommand \033[0m"
 	git $@
 	cd $OLDPATH
 done
