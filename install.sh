@@ -1,6 +1,7 @@
 PRO_DIR=`pwd`
-mkdir -p ~/bin
-cd ~/bin
+BIN_DIR="~/workspace/bin/"
+mkdir -p $BIN_DIR
+cd $BIN_DIR
 
 SHELL_LIST=`ls $PRO_DIR | grep '\.sh$'`
 
