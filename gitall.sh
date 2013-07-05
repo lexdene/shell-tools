@@ -20,17 +20,16 @@ if [ "-v" == "$1" ]
 exit 1
 fi
 
-OLDPATH=$(pwd)
-
 for path in `find $HEREPATH -name .git -follow`
  do
 	# 为了兼容bash < 4.2以下的版本
 	# 只能这样写
 	(( len=${#path}-4))
 	subpath=${path:0:$len}
+	pushd . > /dev/null
 	cd $subpath
 	strCommand="git $@"
 	echo -e "\033[32;40m $subpath >> $strCommand \033[0m"
 	git $@
-	cd $OLDPATH
+	popd > /dev/null
 done
