@@ -1,19 +1,22 @@
 #!/bin/bash
 # git批量操作,一次性对一个目录下的所有git仓库执行命令
+#
+# 原理就是通过find查找所有的.git目录
+# 然后cd到那个目录下，执行相同的命令
 
-APPNAME=gitbll
-VERSION=1.0
+APPNAME=gitall
+VERSION=1.1
 
 #帮助处理
 if [ "$#" == 0 ]
  then
-	echo "usage: $APPNAME <command>";
-	exit 1;
+	echo "usage: $APPNAME <command>"
+	exit 1
 fi
 #版本处理
 if [ "-v" == "$1" ]
  then
-	echo $APPNAME $VERSION;
+	echo $APPNAME $VERSION
 exit 1
 fi
 
@@ -21,6 +24,8 @@ OLDPATH=$(pwd)
 
 for path in `find $HEREPATH -name .git -follow`
  do
+	# 为了兼容bash < 4.2以下的版本
+	# 只能这样写
 	(( len=${#path}-4))
 	subpath=${path:0:$len}
 	cd $subpath
