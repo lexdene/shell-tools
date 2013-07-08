@@ -4,7 +4,7 @@
 # 原理就是通过find查找所有的.git目录
 # 然后cd到那个目录下，执行相同的命令
 
-APPNAME=gitall
+APPNAME='git all'
 VERSION=1.1
 
 #帮助处理
