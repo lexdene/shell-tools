@@ -1,5 +1,5 @@
 PRO_DIR=`pwd`
-BIN_DIR="~/workspace/bin/"
+BIN_DIR="$HOME/workspace/bin/"
 mkdir -p $BIN_DIR
 cd $BIN_DIR
 
